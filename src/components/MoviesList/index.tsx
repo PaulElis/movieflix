@@ -4,7 +4,6 @@ import Card from '../Card/index';
 import { IMovie } from '../../App'
 
 const MoviesList = ({ movies }: {movies?: Array<IMovie>}) => {
-    console.log('MoviesList:', movies)
   return (
       <div>
         <div id='movieslist-container'>

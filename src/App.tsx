@@ -1,8 +1,8 @@
 import * as React from 'react';
 import './App.css';
-import Search from '../src/components/Search/index'
-import MoviesList from './components/MoviesList/index'
-// import searchMovie from '../src/api/moviedb'
+import Search from '../src/components/Search/'
+import MoviesList from './components/MoviesList/'
+import searchMovie from './apis/movieDb';
 
 export interface IMovie {
   title: string,
@@ -21,33 +21,28 @@ interface State {
 }
 
 class App extends React.Component<Props, State> {
-
-   state = {
-     movies: [],
-     query: ''
-   }
-
-   searchMovie = (query: string) => {
-    const URL = `https://api.themoviedb.org/3/search/movie?api_key=0b14c576a4de3d705e825b929cfb6181&language=en-US&query=${query}&page=1&include_adult=false`
-
-    fetch(URL)
-    .then(response => response.json())
-    .then(movies => { this.setState({movies: movies.results}) });
-
+  constructor(props: Props) {
+    super(props)
+    this.state = {
+      movies: [],
+      query: ''
+    }
   }
+
+  searchMovie = searchMovie;
 
   componentDidMount = async () => {
-    this.searchMovie('bean')
+    const result = await this.searchMovie('bean')
+    this.setState({movies: result.results})
   }
-
-  onSearchChange = (event: React.SyntheticEvent<HTMLInputElement>): void => {
+  
+  onSearchChange = async (event: React.SyntheticEvent<HTMLInputElement>) => {
     this.setState({ query: event.currentTarget.value })
-    this.searchMovie(this.state.query)
+    const result = await this.searchMovie(this.state.query)
+    this.setState({movies: result.results})
   }
 
   render(): JSX.Element {
-    // console.log("Movies:", this.state.movies);
-    // console.log("Query:", this.state.query)
     return (
       <div className="App">
         <Search searchChange={this.onSearchChange} />
