@@ -9,6 +9,7 @@ const SearchBox = ({ searchChange }: ISearchBoxProps) => {
   return (
     <div id='search-form-container'>
       <input
+        id='search'
         type='search'
         placeholder='Find a movie..'
         onChange={searchChange}

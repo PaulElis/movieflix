@@ -2,10 +2,14 @@ import * as React from 'react';
 import './App.css';
 import Search from '../src/components/Search/index'
 import MoviesList from './components/MoviesList/index'
+// import searchMovie from '../src/api/moviedb'
 
 export interface IMovie {
-  title: object;
-  poster_path: object;
+  title: string,
+  poster_path: string,
+  vote_count: number,
+  vote_average: number,
+  overview: string
 }
 
 interface Props {
@@ -17,32 +21,22 @@ interface State {
 }
 
 class App extends React.Component<Props, State> {
-  state = {
-    movies: [],
-    query: ''
-  }
 
-  searchMovie = (query: string) => {
-    // function handleErrors(response: any) {
-    //   if (!response.ok) {
-    //       throw Error(response.statusText);
-    //   }
-    //   return response;
-    // }
+   state = {
+     movies: [],
+     query: ''
+   }
 
-    // fetch(`https://api.themoviedb.org/3/search/movie?api_key=0b14c576a4de3d705e825b929cfb6181&language=en-US&query=${query}&page=1&include_adult=false`)
-    // .then(handleErrors)
-    // .then(response => response.json())
-    // .then(movies => { this.setState({movies: movies.results}) });
-    // .try{(function(error: any): void {
-    //     console.log(error);
-    // })};
-    fetch(`https://api.themoviedb.org/3/search/movie?api_key=0b14c576a4de3d705e825b929cfb6181&language=en-US&query=${query}&page=1&include_adult=false`)
+   searchMovie = (query: string) => {
+    const URL = `https://api.themoviedb.org/3/search/movie?api_key=0b14c576a4de3d705e825b929cfb6181&language=en-US&query=${query}&page=1&include_adult=false`
+
+    fetch(URL)
     .then(response => response.json())
     .then(movies => { this.setState({movies: movies.results}) });
+
   }
 
-  componentDidMount = () => {
+  componentDidMount = async () => {
     this.searchMovie('bean')
   }
 
@@ -64,3 +58,4 @@ class App extends React.Component<Props, State> {
 }
 
 export default App;
+

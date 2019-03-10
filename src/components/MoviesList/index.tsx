@@ -7,14 +7,18 @@ const MoviesList = ({ movies }: {movies?: Array<IMovie>}) => {
     console.log('MoviesList:', movies)
   return (
       <div>
-        <div id='card-container'>
-            {movies && movies.length ? movies.map((movie, i) => { 
+        <div id='movieslist-container'>
+            {movies && movies.length ? movies.map((movie, key) => { 
+              const {title, poster_path, vote_count, vote_average, overview} = movie;
                 return (
                 <Card 
-                    key={i} 
-                    title={movie.title}
-                    poster_path={movie.poster_path}
-                    />
+                    key={key} 
+                    title={title}
+                    poster_path={poster_path}
+                    vote_count={vote_count}
+                    vote_average={vote_average}
+                    overview={overview}
+                />
                 )})
                 : null}
         </div>

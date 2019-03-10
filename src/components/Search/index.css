@@ -1,3 +1,9 @@
 div#search-form-container{
+    /* background-color: #B9090B; */
     margin-top: 5vh;
+    padding-bottom: 2%;
+}
+
+input#search{
+    font-size: 1.25vw;
 }
