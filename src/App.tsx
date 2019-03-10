@@ -3,15 +3,16 @@ import './App.css';
 import Search from '../src/components/Search/index'
 import MoviesList from './components/MoviesList/index'
 
-export interface IMovies {
- title: object
+export interface IMovie {
+  title: object;
+  poster_path: object;
 }
 
 interface Props {
 }
 
 interface State {
-  movies?: Array<IMovies>;
+  movies: Array<IMovie>,
   query: string
 }
 
@@ -50,29 +51,13 @@ class App extends React.Component<Props, State> {
     this.searchMovie(this.state.query)
   }
 
-  // renderMovies = (): any => {
-  //   if(this.state.movies){
-  //     return this.state.movies.map(movie => {
-  //       <MoviesList />
-  //     })
-  //   }
-  // }
-
   render(): JSX.Element {
-    console.log("Movies:", this.state.movies);
-    console.log("Query:", this.state.query)
-    
-    // const { movies } = this.state.movies;
-    // const moviesList: Array<IMovies> = movies.map(movie =>{
-    //   return movie;
-    // })
-
+    // console.log("Movies:", this.state.movies);
+    // console.log("Query:", this.state.query)
     return (
       <div className="App">
         <Search searchChange={this.onSearchChange} />
         <MoviesList movies={this.state.movies} />
-        {/* {this.renderMovies()} */}
-        {/* {this.state.movies ? <MoviesList movies={moviesList} /> : null } */}
       </div>
     );
   }

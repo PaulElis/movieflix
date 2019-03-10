@@ -1,21 +1,21 @@
-// import * as React from 'react';
+import * as React from 'react';
+import './index.css'
+import alt from '../../images/alt.jpg'
 
-// interface CardStatelessProps {
-//   name: string,
-//   email: string,
-//   id: number
-// }
+interface CardStatelessProps {
+  title: object,
+  poster_path: object
+}
 
-// const Card: React.SFC<CardStatelessProps> = ({ name, email, id }) => {
-//   return (
-//     <div className='tc grow bg-light-green br3 pa3 ma2 dib bw2 shadow-5'>
-//       <img alt='robots' src={`https://robohash.org/${id}?200x200`} />
-//       <div>
-//         <h2>{name}</h2>
-//         <p>{email}</p>
-//       </div>
-//     </div>
-//   );
-// };
+const Card: React.SFC<CardStatelessProps> = ({ title, poster_path }) => {
+  return (
+    <div>
+        <img id='card-image' alt={'oh no!'} src={poster_path ? `https://image.tmdb.org/t/p/w500${poster_path}` : alt} />
+        <div id='card-text'>
+            <div>{title}</div>
+        </div>
+    </div>
+  );
+};
 
-// export default Card;
+export default Card;
