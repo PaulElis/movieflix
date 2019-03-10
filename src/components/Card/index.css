@@ -30,7 +30,7 @@ div#card-overview{
     font-size: .75vw;
     border: none;
     overflow-y: scroll;
-    height: 16vh;
+    height: 14vh;
     width: 100%;
     resize: none;
 }

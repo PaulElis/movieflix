@@ -1,13 +1,13 @@
 import * as React from 'react';
 import './index.css';
 
-interface ISearchBoxProps {
+interface ISearchProps {
   searchChange(event: React.SyntheticEvent<HTMLInputElement>): void;
 }
 
-const SearchBox = ({ searchChange }: ISearchBoxProps) => {
+const Search = ({ searchChange }: ISearchProps) => {
   return (
-    <div id='search-form-container'>
+    <div id='search-container'>
       <input
         id='search'
         type='search'
@@ -18,4 +18,4 @@ const SearchBox = ({ searchChange }: ISearchBoxProps) => {
   );
 };
 
-export default SearchBox;
+export default Search;

@@ -1,20 +1,15 @@
 import * as React from 'react';
 import './App.css';
-import Search from '../src/components/Search/'
-import MoviesList from './components/MoviesList/'
+import Search from '../src/components/Search/';
+import MoviesList from './components/MoviesList/';
 import searchMovie from './apis/movieDb';
-require('dotenv').config()
-const API_KEY = process.env.REACT_APP_MOVIE_API_KEY;
-
-console.log('API_KEY:', API_KEY)
-console.log('Process.env:', process.env)
 
 export interface IMovie {
   title: string,
   poster_path: string,
   vote_count: number,
   vote_average: number,
-  overview: string
+  overview: string,
 }
 
 interface Props {
@@ -22,7 +17,7 @@ interface Props {
 
 interface State {
   movies: Array<IMovie>,
-  query: string
+  query: string,
 }
 
 class App extends React.Component<Props, State> {
@@ -30,21 +25,21 @@ class App extends React.Component<Props, State> {
     super(props)
     this.state = {
       movies: [],
-      query: ''
+      query: '',
     }
   }
 
   searchMovie = searchMovie;
 
   componentDidMount = async () => {
-    const result = await this.searchMovie('bean')
-    this.setState({movies: result.results})
+    const result = await this.searchMovie('bean');
+    this.setState({movies: result.results});
   }
   
   onSearchChange = async (event: React.SyntheticEvent<HTMLInputElement>) => {
-    this.setState({ query: event.currentTarget.value })
-    const result = await this.searchMovie(this.state.query)
-    this.setState({movies: result.results})
+    this.setState({ query: event.currentTarget.value });
+    const result = await this.searchMovie(this.state.query);
+    this.setState({movies: result.results});
   }
 
   render(): JSX.Element {

@@ -1,13 +1,13 @@
 import * as React from 'react';
-import './index.css'
-import alt from '../../images/alt.jpg'
+import './index.css';
+import alt from '../../images/alt.jpg';
 
 interface CardStatelessProps {
   title: string,
   poster_path: string,
   vote_count: number,
   vote_average: number,
-  overview: string
+  overview: string,
 }
 
 const Card: React.SFC<CardStatelessProps> = ({ title, poster_path, vote_count, vote_average, overview }) => {
@@ -21,7 +21,7 @@ const Card: React.SFC<CardStatelessProps> = ({ title, poster_path, vote_count, v
           />
           <div id='card-text'>
               <div id='card-title'>{title}</div>
-              <div id='card-vote'>{vote_count !== 0 && vote_average !== 0 ? <div>{vote_average}/10 ({vote_count})</div> : <div>----------------</div> }</div>
+              <div id='card-vote'>{vote_count !== 0 && vote_average !== 0 ? <div>{vote_average}/10 ({vote_count})</div> : <div>(No Reviews)</div> }</div>
               <div id='card-overview'>{overview}</div>
           </div>
       </div>
