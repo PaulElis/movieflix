@@ -22,7 +22,7 @@ const Card: React.SFC<CardStatelessProps> = ({ title, poster_path, vote_count, v
           <div id='card-text'>
               <div id='card-title'>{title}</div>
               <div id='card-vote'>{vote_count !== 0 && vote_average !== 0 ? <div>{vote_average}/10 ({vote_count})</div> : <div>----------------</div> }</div>
-              <textarea id='card-overview'>{overview}</textarea>
+              <div id='card-overview'>{overview}</div>
           </div>
       </div>
     </div>

@@ -22,10 +22,12 @@ div#card-title{
 }
 
 div#card-vote{
-    font-size: .75vw;   
+    color: #aaaaaa;
+    font-size: .75vw;
 }
 
-textarea#card-overview{
+div#card-overview{
+    font-size: .75vw;
     border: none;
     overflow-y: scroll;
     height: 16vh;

@@ -3,6 +3,11 @@ import './App.css';
 import Search from '../src/components/Search/'
 import MoviesList from './components/MoviesList/'
 import searchMovie from './apis/movieDb';
+require('dotenv').config()
+const API_KEY = process.env.REACT_APP_MOVIE_API_KEY;
+
+console.log('API_KEY:', API_KEY)
+console.log('Process.env:', process.env)
 
 export interface IMovie {
   title: string,
