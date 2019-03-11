@@ -4,6 +4,7 @@ import Card from '../Card/index';
 import { IMovie } from '../../App';
 
 const MoviesList = ({ movies }: {movies?: Array<IMovie>}) => {
+  console.log('MoviesList:', movies)
   return (
       <div>
         <div id='moviesList-container'>
@@ -21,6 +22,16 @@ const MoviesList = ({ movies }: {movies?: Array<IMovie>}) => {
                 )})
               : null}
         </div>
+          {movies === undefined || movies.length === 0 ?  
+            <div id='moviesList-noMovies'>
+              Your search did not have any matches.<br />
+              <br />
+              Suggestions: <br />
+              <br />
+              • Try different keywords.<br />
+            </div> :
+            null
+          }
       </div>
   );
 }

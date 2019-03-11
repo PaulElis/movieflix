@@ -4,6 +4,13 @@ div#moviesList-container{
     flex-direction: column;
 }
 
+div#moviesList-noMovies{
+    display: flex;
+    justify-content: center;
+    text-align: left;
+    margin-top: 10%;
+}
+
 @media (min-width: 576px) {
 div#moviesList-container{
     display: grid;
@@ -11,8 +18,18 @@ div#moviesList-container{
 }
 }
 
-@media (min-width: 922px) {
+@media (min-width: 768px) {
+div#moviesList-noMovies{
+    margin-top: 5%;
+}
+}
+
+@media (min-width: 1200px) {
 div#moviesList-container{
     grid-template-columns: 1fr 1fr 1fr;
+}
+
+div#moviesList-noMovies{
+    margin-top: 2%;
 }
 }
