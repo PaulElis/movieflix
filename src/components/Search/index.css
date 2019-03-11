@@ -5,5 +5,11 @@ div#search-container{
 }
 
 input#search{
-    font-size: 1.25vw;
+    font-size: 12px;
+}
+
+@media (min-width: 922px) {
+input#search{
+    font-size: 14px;
+}
 }

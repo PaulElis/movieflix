@@ -4,9 +4,15 @@ div#moviesList-container{
     flex-direction: column;
 }
 
-@media (min-width: 1200px) {
+@media (min-width: 576px) {
 div#moviesList-container{
     display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+}
+
+@media (min-width: 922px) {
+div#moviesList-container{
     grid-template-columns: 1fr 1fr 1fr;
 }
 }

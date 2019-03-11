@@ -1,3 +1,7 @@
+img#card-image{
+    height: 30vh;
+}
+
 div#card-container{
     background-color: #ffffff;
     border: 1px solid #dddddd;
@@ -6,13 +10,9 @@ div#card-container{
     margin: 0% 20% 10% 20%;
 }
 
-img#card-image{
-    height: 40vh;
-}
-
 div#card-text{
     text-align: left;
-    font-size: 1.25vw;
+    font-size: 12px;
     padding: 0% 15%;
 }
 
@@ -23,14 +23,34 @@ div#card-title{
 
 div#card-vote{
     color: #aaaaaa;
-    font-size: .75vw;
+    font-size: 8px;
 }
 
 div#card-overview{
-    font-size: .75vw;
+    font-size: 10px;
     border: none;
     overflow-y: scroll;
     height: 14vh;
     width: 100%;
     resize: none;
+}
+
+@media (min-width: 576px) {
+img#card-image{
+    height: 20vh;
+}
+
+div#card-text{
+    font-size: 14px;
+}
+
+div#card-vote{
+    font-size: 8px;
+}
+}
+
+@media (min-width: 922px) {
+img#card-image{
+    height: 40vh;
+}
 }
