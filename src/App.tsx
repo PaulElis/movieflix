@@ -16,7 +16,7 @@ interface Props {
 }
 
 interface State {
-  movies: Array<IMovie>,
+  movies?: Array<IMovie>,
   query: string,
 }
 

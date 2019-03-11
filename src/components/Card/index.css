@@ -37,7 +37,7 @@ div#card-overview{
 
 @media (min-width: 576px) {
 img#card-image{
-    height: 20vh;
+    height: 29vh;
 }
 
 div#card-text{
@@ -46,6 +46,12 @@ div#card-text{
 
 div#card-vote{
     font-size: 8px;
+}
+}
+
+@media (min-width: 768px) {
+img#card-image{
+    height: 34vh;
 }
 }
 

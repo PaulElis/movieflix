@@ -5,11 +5,50 @@ div#moviesList-container{
 }
 
 div#moviesList-noMovies{
+    font-family: Helvetica, sans-serif;
     display: flex;
     justify-content: center;
     text-align: left;
     margin-top: 10%;
 }
+
+div#singlemoviesList-container{
+    margin: 0% 10%;
+}
+
+div.spinner-container{
+    position: fixed;
+    width: 100%;
+    height:100%;
+    display: flex;
+    align-items: center;
+    top: 0;
+}
+
+div.loader {
+    margin: 0 auto;
+    border: 16px solid #f3f3f3;
+    border-top: 16px solid #3498db;
+    border-bottom: 16px solid #3498db;
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    animation: spin 1.5s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.fade-in {
+    opacity:0;
+    animation: fadeIn ease-in 1;
+    animation-fill-mode: forwards;
+    animation-duration: 1.5s;
+}
+
+@keyframes fadeIn { from { opacity:0; } to { opacity:1; }}
 
 @media (min-width: 576px) {
 div#moviesList-container{
@@ -22,6 +61,10 @@ div#moviesList-container{
 div#moviesList-noMovies{
     margin-top: 5%;
 }
+
+div#singlemoviesList-container{
+    margin: 0% 20%;
+}
 }
 
 @media (min-width: 1200px) {
@@ -31,5 +74,15 @@ div#moviesList-container{
 
 div#moviesList-noMovies{
     margin-top: 2%;
+}
+
+div#singlemoviesList-container{
+    margin: 0% 25%;
+}
+}
+
+@media (min-width: 1500px) {
+div#singlemoviesList-container{
+    margin: 0% 35%;
 }
 }
