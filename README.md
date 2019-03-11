@@ -1,10 +1,22 @@
 # MovieFlix
 
-Use MovieFlix to search among a wide variety of films and see ratings, votes and overviews of your favorite movies.
+Imagine you want to find out how well one of your favorite movies has been rated by other people? Use MovieFlix to search among a wide variety of films and see ratings, votes and overviews of your favorite movies.
 
 ## Getting Started
 
-### Run 'npm install'
+### Prerequisites
+
+[Git](https://git-scm.com/) (git --version, preinstalled on MacOS)
+
+[Node.js](https://nodejs.org/en/download/):
+
+• See “engines” from package.json for supported versions
+
+• Use node --version && npm --version to check your current version.
+
+• I recommend managing Node.js versions using [NVM](https://github.com/creationix/nvm).
+
+### Run `npm install`
 
 In the project directory, you can run:
 
