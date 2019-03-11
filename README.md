@@ -16,9 +16,9 @@ Imagine you want to find out how well one of your favorite movies has been rated
 
 • I recommend managing Node.js versions using [NVM](https://github.com/creationix/nvm).
 
-### Run `npm install`
-
 In the project directory, you can run:
+
+### `npm install`
 
 ### `npm start`
 
