@@ -2,10 +2,9 @@ import * as React from 'react';
 import './index.css';
 import Card from '../Card/index';
 import { IMovie } from '../../App';
+import { ILoading } from '../../App';
 
-const MoviesList = ({ movies }: {movies?: Array<IMovie>}) => {
-
-  console.log('MoviesList:', movies)
+const MoviesList = ({ movies, loading }: {movies?: Array<IMovie>, loading: boolean}) => {
 
   const moviesRender = () => {
     if(movies && movies.length) { 
@@ -22,9 +21,7 @@ const MoviesList = ({ movies }: {movies?: Array<IMovie>}) => {
             />
           )
       })
-    } else if(movies === null){
-      return null
-    } else {
+    } else if (movies === undefined || !movies.length && loading ) {
       return (
         <div className='fade-in' id='moviesList-noMovies'>
           Your search did not have any matches.<br />
@@ -34,7 +31,9 @@ const MoviesList = ({ movies }: {movies?: Array<IMovie>}) => {
           • Try different keywords.<br />
         </div>
       )
-    } 
+    } else {
+      return null
+    }
   }
 
   const moviesContainer = () => {

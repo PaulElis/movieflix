@@ -12,12 +12,17 @@ export interface IMovie {
   overview: string,
 }
 
+export interface ILoading {
+  loading: boolean,
+}
+
 interface Props {
 }
 
 interface State {
   movies?: Array<IMovie>,
   query: string,
+  loading: boolean
 }
 
 class App extends React.Component<Props, State> {
@@ -26,6 +31,7 @@ class App extends React.Component<Props, State> {
     this.state = {
       movies: [],
       query: '',
+      loading: false,
     }
   }
 
@@ -33,7 +39,10 @@ class App extends React.Component<Props, State> {
 
   componentDidMount = async () => {
     const result = await this.searchMovie('bean');
-    this.setState({movies: result.results});
+    this.setState({
+      movies: result.results,
+      loading: true,
+    });
   }
   
   onSearchChange = async (event: React.SyntheticEvent<HTMLInputElement>) => {
@@ -46,7 +55,7 @@ class App extends React.Component<Props, State> {
     return (
       <div className="App">
         <Search searchChange={this.onSearchChange} />
-        <MoviesList movies={this.state.movies} />
+        <MoviesList movies={this.state.movies} loading={this.state.loading} />
       </div>
     );
   }
