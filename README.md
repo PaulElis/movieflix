@@ -14,8 +14,6 @@ Imagine you want to find out how well one of your favorite movies has been rated
 
 • Use node --version && npm --version to check your current version.
 
-• I recommend managing Node.js versions using [NVM](https://github.com/creationix/nvm).
-
 In the project directory, you can run:
 
 ### `npm install`
