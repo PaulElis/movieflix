@@ -9,14 +9,15 @@ const MoviesList = ({ movies, loading }: {movies?: Array<IMovie>, loading: boole
   const moviesRender = () => {
     if(movies && movies.length) { 
       return movies.map((movie, key) => { 
-        const {title, poster_path, vote_count, vote_average, overview} = movie;
+        const {title, release_date, poster_path, vote_average, vote_count, overview} = movie;
           return (
             <Card 
               key={key} 
               title={title}
+              release_date={release_date}
               poster_path={poster_path}
-              vote_count={vote_count}
               vote_average={vote_average}
+              vote_count={vote_count}
               overview={overview}
             />
           )

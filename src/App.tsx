@@ -6,9 +6,10 @@ import searchMovie from './apis/movieDb';
 
 export interface IMovie {
   title: string,
+  release_date: string,
   poster_path: string,
-  vote_count: number,
   vote_average: number,
+  vote_count: number,
   overview: string,
 }
 
