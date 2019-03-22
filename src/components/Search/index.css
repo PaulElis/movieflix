@@ -1,7 +1,6 @@
 div#search-container{
-    /* background-color: #B9090B; */
-    margin-top: 5vh;
-    padding-bottom: 2%;
+    background-color: #B9090B;
+    padding: 2% 0;
 }
 
 input#search{

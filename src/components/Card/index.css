@@ -16,9 +16,14 @@ div#card-text{
     padding: 0% 15%;
 }
 
-div#card-title{
+span#card-title{
     font-family: Helvetica, sans-serif;
     color: #333333;
+}
+
+span#card-releaseDate{
+    color: #666666;
+    font-size: 10px;
 }
 
 div#card-vote{

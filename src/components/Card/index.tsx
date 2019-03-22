@@ -21,7 +21,7 @@ const Card: React.SFC<CardStatelessProps> = ({ title, release_date, poster_path,
               src={poster_path ? `https://image.tmdb.org/t/p/w500${poster_path}` : alt} 
           />
           <div id='card-text'>
-              <div id='card-title'>{title} {release_date.slice(0,4)}</div>
+              <span id='card-title'>{title} <span id='card-releaseDate'>({release_date.slice(0,4)})</span></span>
               <div id='card-vote'>{vote_count !== 0 && vote_average !== 0 ? <div>{vote_average}/10 ({vote_count})</div> : <div>(No Reviews)</div> }</div>
               <div id='card-overview'>{overview}</div>
           </div>

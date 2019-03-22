@@ -1,0 +1,9 @@
+div#filter-container{
+    background-color: #efefef;
+    display: none;
+}
+
+ul.dd-list{
+    padding: 0;
+    margin: 0;
+}

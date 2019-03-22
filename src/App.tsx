@@ -1,7 +1,8 @@
 import * as React from 'react';
 import './App.css';
 import Search from '../src/components/Search/';
-import MoviesList from './components/MoviesList/';
+import Filter from '../src/components/Filter/';
+import MoviesList from '../src/components/MoviesList/';
 import searchMovie from './apis/movieDb';
 
 export interface IMovie {
@@ -56,6 +57,7 @@ class App extends React.Component<Props, State> {
     return (
       <div className="App">
         <Search searchChange={this.onSearchChange} />
+        <Filter />
         <MoviesList movies={this.state.movies} loading={this.state.loading} />
       </div>
     );
