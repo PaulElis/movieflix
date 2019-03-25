@@ -1,6 +1,6 @@
 div#filter-container{
     background-color: #efefef;
-    display: none;
+    /* display: none; */
 }
 
 ul.dd-list{
