@@ -1,11 +1,30 @@
 import * as React from 'react';
 import './index.css';
 
-class Filter extends React.Component {
+interface Props {
+}
 
-  state = {
-    displayMenu: false,
-  };
+interface State {
+  displayMenu: boolean,
+}
+
+class Filter extends React.Component<Props, State>  {
+  constructor(props: Props) {
+    super(props)
+   
+    this.state = {
+          displayMenu: false,
+        };
+   
+     this.showDropdownMenu = this.showDropdownMenu.bind(this);
+     this.hideDropdownMenu = this.hideDropdownMenu.bind(this);
+   
+   };
+
+
+  // state = {
+  //   displayMenu: false,
+  // };
 
   showDropdownMenu(event: React.SyntheticEvent<HTMLDivElement>): void {
     event.preventDefault();
@@ -22,18 +41,15 @@ class Filter extends React.Component {
 
 
   render(): JSX.Element {
+    console.log(this.state.displayMenu)
     return (
-      <div  className="dropdown" style = {{background:"red",width:"200px"}} >
-        <div className="button" onClick={this.showDropdownMenu}> My Setting </div>
+      <div  className="dropdown" style = {{background:"#eeeeee", width:"100%"}} >
+        <div className="button" onClick={this.showDropdownMenu}> Dropdown Menu </div>
           { this.state.displayMenu ? (
             <ul>
               <li><a className="active" href="#Create Page">Create Page</a></li>
               <li><a href="#Manage Pages">Manage Pages</a></li>
               <li><a href="#Create Ads">Create Ads</a></li>
-              <li><a href="#Manage Ads">Manage Ads</a></li>
-              <li><a href="#Activity Logs">Activity Logs</a></li>
-              <li><a href="#Setting">Setting</a></li>
-              <li><a href="#Log Out">Log Out</a></li>
             </ul>
             ): ( null )
           }
