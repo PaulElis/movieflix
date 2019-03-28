@@ -21,11 +21,6 @@ class Filter extends React.Component<Props, State>  {
    
    };
 
-
-  // state = {
-  //   displayMenu: false,
-  // };
-
   showDropdownMenu(event: React.SyntheticEvent<HTMLDivElement>): void {
     event.preventDefault();
     this.setState({ displayMenu: true }, () => {
@@ -41,17 +36,16 @@ class Filter extends React.Component<Props, State>  {
 
 
   render(): JSX.Element {
-    console.log(this.state.displayMenu)
     return (
       <div  className="dropdown" style = {{background:"#eeeeee", width:"100%"}} >
         <div className="button" onClick={this.showDropdownMenu}> Dropdown Menu </div>
           { this.state.displayMenu ? (
             <ul>
-              <li><a className="active" href="#Create Page">Create Page</a></li>
-              <li><a href="#Manage Pages">Manage Pages</a></li>
-              <li><a href="#Create Ads">Create Ads</a></li>
+              <li><a className="dropdown-link" href="#Create Page">Create Page</a></li>
+              <li><a className="dropdown-link" href="#Manage Pages">Manage Pages</a></li>
+              <li><a className="dropdown-link" href="#Create Ads">Create Ads</a></li>
             </ul>
-            ): ( null )
+            ) : (null)
           }
     </div>
     );
