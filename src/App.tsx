@@ -40,7 +40,7 @@ class App extends React.Component<Props, State> {
   searchMovie = searchMovie;
 
   componentDidMount = async () => {
-    const result = await this.searchMovie('bean');
+    const result = await this.searchMovie('terminator');
     this.setState({
       movies: result.results,
       loading: true,

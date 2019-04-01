@@ -5,49 +5,63 @@ interface Props {
 }
 
 interface State {
-  displayMenu: boolean,
+  value: string,
+  options: Array<IOption>,
+}
+
+export interface IOption {
+  name: string,
+  value: string,
 }
 
 class Filter extends React.Component<Props, State>  {
   constructor(props: Props) {
     super(props)
-   
-    this.state = {
-          displayMenu: false,
-        };
-   
-     this.showDropdownMenu = this.showDropdownMenu.bind(this);
-     this.hideDropdownMenu = this.hideDropdownMenu.bind(this);
-   
+      this.state = {
+        value: '',
+        options: [
+          {
+            name: 'Relevance',
+            value: 'Relevance',
+          },
+          {
+            name: 'Title',
+            value: 'Title',
+          },
+          {
+            name: 'Year',
+            value: 'Year',
+          },
+          {
+            name: 'Rating',
+            value: 'Rating',
+          },
+          {
+            name: '# of Reviews',
+            value: '# of Reviews',
+          },
+        ]
+      }; 
+    this.sortBy = this.sortBy.bind(this); 
    };
 
-  showDropdownMenu(event: React.SyntheticEvent<HTMLDivElement>): void {
-    event.preventDefault();
-    this.setState({ displayMenu: true }, () => {
-      document.addEventListener('click', this.hideDropdownMenu);
-    });
+  sortBy(event: React.ChangeEvent<HTMLSelectElement>): void {
+    console.log('event: ', event.target.value)
+    this.setState({value: event.target.value});
   }
-
-  hideDropdownMenu() {
-    this.setState({ displayMenu: false }, () => {
-      document.removeEventListener('click', this.hideDropdownMenu);
-    });
-  }
-
 
   render(): JSX.Element {
+    const {value, options} = this.state;
     return (
-      <div  className="dropdown" style = {{background:"#eeeeee", width:"100%"}} >
-        <div className="button" onClick={this.showDropdownMenu}> Dropdown Menu </div>
-          { this.state.displayMenu ? (
-            <ul>
-              <li><a className="dropdown-link" href="#Create Page">Create Page</a></li>
-              <li><a className="dropdown-link" href="#Manage Pages">Manage Pages</a></li>
-              <li><a className="dropdown-link" href="#Create Ads">Create Ads</a></li>
-            </ul>
-            ) : (null)
-          }
-    </div>
+      <div  className="dropdown" >
+        <select  onChange={this.sortBy}>
+          {options.map(item => (
+            <option key={item.value} value={item.value}>
+              {item.name}
+            </option>
+          ))}
+        </select>
+      </div>
     );
   }
 }

@@ -3,13 +3,25 @@ div#filter-container{
     /* display: none; */
 }
 
+div.button{
+    background-color: #ffffff;  
+    border: 1px solid #dddddd;
+    border-radius: 5px;
+    margin: 0 45%;
+    padding: .25% 0;  
+}
+
 ul{
+    background-color: #ffffff;  
+    border: 1px solid #dddddd;
+    margin: 0 45% .25% 45%;
+    border-radius: 5px;
     padding: 0;
-    margin: 0;
 }
 
 li{
     list-style-type: none;
+    padding: 1% 0;
 }
 
 a.dropdown-link{
