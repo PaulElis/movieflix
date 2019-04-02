@@ -22,31 +22,30 @@ class Filter extends React.Component<Props, State>  {
         options: [
           {
             name: 'Relevance',
-            value: 'Relevance',
+            value: 'relevance',
           },
           {
             name: 'Title',
-            value: 'Title',
+            value: 'title',
           },
           {
             name: 'Year',
-            value: 'Year',
+            value: 'year',
           },
           {
             name: 'Rating',
-            value: 'Rating',
+            value: 'rating',
           },
           {
             name: '# of Reviews',
-            value: '# of Reviews',
+            value: 'reviews',
           },
         ]
       }; 
-    this.sortBy = this.sortBy.bind(this); 
+    this.handleChange = this.handleChange.bind(this); 
    };
 
-  sortBy(event: React.ChangeEvent<HTMLSelectElement>): void {
-    console.log('event: ', event.target.value)
+  handleChange(event: React.ChangeEvent<HTMLSelectElement>): void {
     this.setState({value: event.target.value});
   }
 
@@ -54,7 +53,7 @@ class Filter extends React.Component<Props, State>  {
     const {value, options} = this.state;
     return (
       <div  className="dropdown" >
-        <select  onChange={this.sortBy}>
+        <select onChange={this.handleChange}>
           {options.map(item => (
             <option key={item.value} value={item.value}>
               {item.name}
