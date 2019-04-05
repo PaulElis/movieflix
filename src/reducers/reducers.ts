@@ -1,11 +1,11 @@
 const defaultState = {
-    query: '',
+    movies: [],
 }
   
 export default function(state=defaultState, action: any){
     switch(action.type){
         case "RUN_SEARCH":
-        return {albums: action.payload}
+        return {movies: action.payload}
         default:
         return state
     }

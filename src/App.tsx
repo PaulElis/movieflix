@@ -3,7 +3,9 @@ import './App.css';
 import Search from '../src/components/Search/';
 import Filter from '../src/components/Filter/';
 import MoviesList from '../src/components/MoviesList/';
-import searchMovie from './apis/movieDb';
+// import searchMovie from './apis/movieDb';
+import { connect } from 'react-redux'
+import { searchMovie } from '../src/actions/actions'
 
 export interface IMovie {
   title: string,
@@ -19,6 +21,7 @@ export interface ILoading {
 }
 
 interface Props {
+  searchMovie: Function
 }
 
 interface State {
@@ -37,23 +40,24 @@ class App extends React.Component<Props, State> {
     }
   }
 
-  searchMovie = searchMovie;
+  // searchMovie = searchMovie;
 
   componentDidMount = async () => {
-    const result = await this.searchMovie('terminator');
+    const moviesResult = await this.props.searchMovie('terminator');
     this.setState({
-      movies: result.results,
+      movies: moviesResult,
       loading: true,
     });
   }
   
   onSearchChange = async (event: React.SyntheticEvent<HTMLInputElement>) => {
     this.setState({ query: event.currentTarget.value });
-    const result = await this.searchMovie(this.state.query);
+    const result = this.props.searchMovie(this.state.query);
     this.setState({movies: result.results});
   }
 
   render(): JSX.Element {
+    console.log('movies: ', this.state.movies)
     return (
       <div className="App">
         <Search searchChange={this.onSearchChange} />
@@ -64,5 +68,11 @@ class App extends React.Component<Props, State> {
   }
 }
 
-export default App;
+function mapStateToProps(state: any){
+  return {
+    movies: state.movies,
+  }
+}
+
+export default (connect(mapStateToProps, {searchMovie}) (App));
 
