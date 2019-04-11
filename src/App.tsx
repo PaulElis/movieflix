@@ -16,16 +16,13 @@ export interface IMovie {
   overview: string,
 }
 
-export interface ILoading {
-  loading: boolean,
-}
-
 interface Props {
-  searchMovie: Function
+  searchMovie: Function,
+  movies: Array<IMovie>
 }
 
 interface State {
-  movies?: Array<IMovie>,
+  movies: Array<IMovie>,
   query: string,
   loading: boolean
 }
@@ -40,24 +37,25 @@ class App extends React.Component<Props, State> {
     }
   }
 
-  // searchMovie = searchMovie;
-
-  componentDidMount = async () => {
-    const moviesResult = await this.props.searchMovie('terminator');
-    this.setState({
-      movies: moviesResult,
-      loading: true,
-    });
+  componentDidMount = () => {
+    this.props.searchMovie('terminator');
   }
-  
+
+  componentDidUpdate(prevProps :any) {
+    if (this.props.movies !== prevProps.movies) {
+      this.setState({
+        movies: this.props.movies,
+        loading: true,
+      });
+    }
+  }
+
   onSearchChange = async (event: React.SyntheticEvent<HTMLInputElement>) => {
     this.setState({ query: event.currentTarget.value });
     const result = this.props.searchMovie(this.state.query);
-    this.setState({movies: result.results});
   }
 
   render(): JSX.Element {
-    console.log('movies: ', this.state.movies)
     return (
       <div className="App">
         <Search searchChange={this.onSearchChange} />

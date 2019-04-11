@@ -2,7 +2,6 @@ import * as React from 'react';
 import './index.css';
 import Card from '../Card/index';
 import { IMovie } from '../../App';
-import { ILoading } from '../../App';
 
 const MoviesList = ({ movies, loading }: {movies?: Array<IMovie>, loading: boolean}) => {
 

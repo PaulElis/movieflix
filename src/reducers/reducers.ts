@@ -1,5 +1,5 @@
 const defaultState = {
-    movies: [],
+    movies: null,
 }
   
 export default function(state=defaultState, action: any){
