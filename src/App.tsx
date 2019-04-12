@@ -3,7 +3,6 @@ import './App.css';
 import Search from '../src/components/Search/';
 import Filter from '../src/components/Filter/';
 import MoviesList from '../src/components/MoviesList/';
-// import searchMovie from './apis/movieDb';
 import { connect } from 'react-redux'
 import { searchMovie } from '../src/actions/actions'
 
@@ -18,7 +17,7 @@ export interface IMovie {
 
 interface Props {
   searchMovie: Function,
-  movies: Array<IMovie>
+  movies: Array<IMovie>,
 }
 
 interface State {
@@ -50,6 +49,10 @@ class App extends React.Component<Props, State> {
     }
   }
 
+  sortMovies = (filter: string) => {
+    console.log('sortMovies: ', filter)
+  }
+
   onSearchChange = async (event: React.SyntheticEvent<HTMLInputElement>) => {
     this.setState({ query: event.currentTarget.value });
     const result = this.props.searchMovie(this.state.query);
@@ -59,7 +62,7 @@ class App extends React.Component<Props, State> {
     return (
       <div className="App">
         <Search searchChange={this.onSearchChange} />
-        <Filter />
+        <Filter sortMovies={this.sortMovies} />
         <MoviesList movies={this.state.movies} loading={this.state.loading} />
       </div>
     );

@@ -2,6 +2,7 @@ import * as React from 'react';
 import './index.css';
 
 interface Props {
+  sortMovies: Function;
 }
 
 interface State {
@@ -46,7 +47,9 @@ class Filter extends React.Component<Props, State>  {
    };
 
   handleChange(event: React.ChangeEvent<HTMLSelectElement>): void {
-    this.setState({value: event.target.value});
+    this.setState({value: event.target.value}, () => {
+      this.props.sortMovies(this.state.value)
+    });
   }
 
   render(): JSX.Element {
