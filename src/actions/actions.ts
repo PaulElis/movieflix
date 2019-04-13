@@ -1,5 +1,6 @@
 import * as dotenv from 'dotenv'
 dotenv.config()
+import { IMovie } from '../App';
 
 export function searchMovie(query: string){
     const API_KEY = process.env.REACT_APP_MOVIE_API_KEY;
@@ -11,7 +12,14 @@ export function searchMovie(query: string){
             dispatch({type: "RUN_SEARCH", payload: movies.results})
         })
     }
-  }
+}
+
+export function sortMovies(movies: Array<IMovie>, filter: string){
+    // console.log('sortMovies: ', filter)
+    const sorted = movies.sort((a: any, b: any) => {
+      return a.release_date.slice(0,4) - b.release_date.slice(0,4)
+    })
+}
 
 // export function fetchTopArtists(){
 //     const API_KEY = process.env.REACT_APP_MOVIE_API_KEY;

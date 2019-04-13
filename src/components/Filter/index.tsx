@@ -1,7 +1,9 @@
 import * as React from 'react';
 import './index.css';
+import { IMovie } from '../../App';
 
 interface Props {
+  movies: Array<IMovie>,
   sortMovies: Function;
 }
 
@@ -48,11 +50,12 @@ class Filter extends React.Component<Props, State>  {
 
   handleChange(event: React.ChangeEvent<HTMLSelectElement>): void {
     this.setState({value: event.target.value}, () => {
-      this.props.sortMovies(this.state.value)
+      this.props.sortMovies(this.props.movies, this.state.value)
     });
   }
 
   render(): JSX.Element {
+    console.log(this.props)
     const {value, options} = this.state;
     return (
       <div  className="dropdown" >

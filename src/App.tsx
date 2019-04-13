@@ -50,7 +50,12 @@ class App extends React.Component<Props, State> {
   }
 
   sortMovies = (filter: string) => {
-    console.log('sortMovies: ', filter)
+    // console.log('sortMovies: ', filter)
+    let movies = this.state.movies
+    const sorted = movies.sort((a: any, b: any) => {
+      return a.release_date.slice(0,4) - b.release_date.slice(0,4)
+    })
+    this.setState({ movies: movies });
   }
 
   onSearchChange = async (event: React.SyntheticEvent<HTMLInputElement>) => {
@@ -59,10 +64,11 @@ class App extends React.Component<Props, State> {
   }
 
   render(): JSX.Element {
+    console.log('movies: ', this.state.movies)
     return (
       <div className="App">
         <Search searchChange={this.onSearchChange} />
-        <Filter sortMovies={this.sortMovies} />
+        <Filter sortMovies={this.sortMovies} {...this.props} />
         <MoviesList movies={this.state.movies} loading={this.state.loading} />
       </div>
     );
