@@ -15,10 +15,14 @@ export function searchMovie(query: string){
 }
 
 export function sortMovies(movies: Array<IMovie>, filter: string){
-    // console.log('sortMovies: ', filter)
-    const sorted = movies.sort((a: any, b: any) => {
-      return a.release_date.slice(0,4) - b.release_date.slice(0,4)
+    // console.log('Redux movies: ', movies)
+    let sorted = movies.sort((a: any, b: any) => {
+        return a.release_date.slice(0,4) - b.release_date.slice(0,4)
     })
+    // console.log('Redux sorted: ', sorted)
+    return (dispatch: any) => {
+        dispatch({type: "RUN_SEARCH", payload: sorted})
+    }
 }
 
 // export function fetchTopArtists(){

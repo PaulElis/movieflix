@@ -55,7 +55,7 @@ class Filter extends React.Component<Props, State>  {
   }
 
   render(): JSX.Element {
-    console.log(this.props)
+    // console.log(this.props)
     const {value, options} = this.state;
     return (
       <div  className="dropdown" >
