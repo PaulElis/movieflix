@@ -66,7 +66,7 @@ class App extends React.Component<Props, State> {
   }
 
   render(): JSX.Element {
-    // console.log('movies: ', this.state.movies)
+    console.log('movies: ', this.state.movies)
     return (
       <div className="App">
         <Search searchChange={this.onSearchChange} />
