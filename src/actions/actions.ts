@@ -14,45 +14,39 @@ export function searchMovie(query: string){
     }
 }
 
-export function sortMovies(movies: Array<IMovie>, filter: string){
-    console.log('Redux filter: ', filter)
-
-    // let sorted = movies.sort((a: any, b: any) => {
-    //     return a.release_date.slice(0,4) - b.release_date.slice(0,4)
-    // })
-
-    let reverse = ''
+export function sortMovies(movies: Array<IMovie>, filter: string, reverse: string){
     let sorted: Array<IMovie>
-
     switch (filter) {
+        case 'relevance':
+        // Grab original list of movies
+            // sorted = originalList.sort((a: any, b: any) => {
+            //     return reverse ? originalList.slice().reverse() : originalList;
+            // })
+            break;
         case 'title':
-        // Fix for strings
             sorted = movies.sort((a: any, b: any) => {
-                return a.title - b.title
+                return reverse ? ('' + b.title).localeCompare(a.title) : ('' + a.title).localeCompare(b.title);
             })
             break;
         case 'year':
             sorted = movies.sort((a: any, b: any) => {
-                return b.release_date.slice(0,4) - a.release_date.slice(0,4)
+                return reverse ? a.release_date.slice(0,4) - b.release_date.slice(0,4) : b.release_date.slice(0,4) - a.release_date.slice(0,4)
             })
             break;
         case 'rating':
             sorted = movies.sort((a: any, b: any) => {
-                return b.vote_average - a.vote_average
+                return reverse ? a.vote_average - b.vote_average : b.vote_average - a.vote_average
             })
             break;
         case 'reviews':
             sorted = movies.sort((a: any, b: any) => {
-                return b.vote_count - a.vote_count
+                return reverse ? a.vote_count - b.vote_count : b.vote_count - a.vote_count
             })
             break;
         default:
-          console.log('Sorry, no filter .');
+          console.log('Sorry, no filter.');
     }
-
-    // console.log('Redux before dispatch: ', sorted)
     return (dispatch: any) => {
-        // console.log('Redux sorted: ', sorted)
         dispatch({type: "RUN_SEARCH", payload: sorted.slice()})
     }
 }

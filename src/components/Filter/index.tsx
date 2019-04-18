@@ -9,6 +9,7 @@ interface Props {
 
 interface State {
   value: string,
+  reverse: boolean,
   options: Array<IOption>,
 }
 
@@ -22,6 +23,7 @@ class Filter extends React.Component<Props, State>  {
     super(props)
       this.state = {
         value: '',
+        reverse: false,
         options: [
           {
             name: 'Relevance',
@@ -52,6 +54,7 @@ class Filter extends React.Component<Props, State>  {
     this.setState({value: event.target.value}, () => {
       this.props.sortMovies(this.props.movies, this.state.value)
     });
+    // Reset state of reverse to False
   }
 
   render(): JSX.Element {

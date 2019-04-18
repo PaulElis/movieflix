@@ -42,7 +42,6 @@ class App extends React.Component<Props, State> {
   }
 
   componentDidUpdate(prevProps :any) {
-    console.log('Component Updated!')
     if (this.props.movies !== prevProps.movies) {
       this.setState({
         movies: this.props.movies,
@@ -66,7 +65,7 @@ class App extends React.Component<Props, State> {
   }
 
   render(): JSX.Element {
-    console.log('movies: ', this.state.movies)
+    // console.log('movies: ', this.state.movies)
     return (
       <div className="App">
         <Search searchChange={this.onSearchChange} />
